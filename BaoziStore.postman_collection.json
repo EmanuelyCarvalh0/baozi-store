@@ -1,0 +1,52 @@
+{
+  "info": {
+    "name": "Baozi Store API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:8080" }],
+  "item": [
+    {
+      "name": "1 - POST /clientes",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Emanuely4593104\",\n  \"clienteDesde\": \"2026-10-05\"\n}" },
+        "url": "{{baseUrl}}/clientes"
+      }
+    },
+    {
+      "name": "2 - POST /produtos",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Baozi de Porco Tradicional\",\n  \"preco\": 7.50,\n  \"estoque\": true\n}" },
+        "url": "{{baseUrl}}/produtos"
+      }
+    },
+    {
+      "name": "3 - POST /pedidos",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 6\n}" },
+        "url": "{{baseUrl}}/pedidos"
+      }
+    },
+    { "name": "4 - GET /clientes", "request": { "method": "GET", "url": "{{baseUrl}}/clientes" } },
+    { "name": "5 - GET /produtos", "request": { "method": "GET", "url": "{{baseUrl}}/produtos" } },
+    { "name": "6 - GET /pedidos", "request": { "method": "GET", "url": "{{baseUrl}}/pedidos" } },
+    { "name": "7 - GET /clientes/1", "request": { "method": "GET", "url": "{{baseUrl}}/clientes/1" } },
+    { "name": "8 - GET /produtos/1", "request": { "method": "GET", "url": "{{baseUrl}}/produtos/1" } },
+    { "name": "9 - GET /pedidos/1", "request": { "method": "GET", "url": "{{baseUrl}}/pedidos/1" } },
+    {
+      "name": "10a - POST /pedidos (pedido 2, para apagar)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 2\n}" },
+        "url": "{{baseUrl}}/pedidos"
+      }
+    },
+    { "name": "10b - DELETE /pedidos/2", "request": { "method": "DELETE", "url": "{{baseUrl}}/pedidos/2" } }
+  ]
+}
